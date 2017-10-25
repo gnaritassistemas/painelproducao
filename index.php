@@ -21,13 +21,13 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
     <style>
-        div.sticky{
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            padding: 5px;
-            z-index: 3;
-        }
+    div.sticky{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        padding: 5px;
+        z-index: 3;
+    }
     .fixo{
         top: 0;
         right: 0;
@@ -42,10 +42,11 @@
     .painel{transition:box-shadow .25s;padding:78px;margin:0.5rem 0 1rem 0;}
     .cor1{
         background-color: #0F2040;
+        border-radius: 10px;
     }
     .cor2{
         background-color: #182E52;
-        border-radius: 10px;
+        color: #fff;
     }
     .padding{
         padding-top: 6px;
@@ -55,11 +56,15 @@
         padding-top: 3%;
         padding-left: 10%;
     }
+    .divinterna{
+        padding-top:14px; 
+        height: 170px;
+    }
     </style>
 </head>
 
 <!--<body style="background-color: #0F2040; color: #fff" onload="setTimeout('location.reload()', <?=$tempo_ciclo?>000);">-->
-<body style="background-color: #0F2040; color: #fff" >
+<body class="cor2">
     
 <div class="container-fluid padding2">
      
@@ -69,21 +74,21 @@
 
             <!-- /. ROW  --> 
             <div class="row">
-                <div class="cor2 padding text-center col-md-5">
+                <div class="cor1 padding text-center col-md-5">
                     <h5>  Nº de Pessoas </h5> 
                     <hr/>
-                    <div style="padding-top:14px; height: 120px;">
+                    <div class="divinterna">
                         <h1 id="no_homens"> </h1> 
                     </div>
                     
                 </div>
 
-                <div class="cor1 padding text-center col-md-2"> </div>
+                <div class="cor2 padding text-center col-md-2"> </div>
 
-                <div class="cor2 padding text-center col-md-5">
+                <div class="cor1 padding text-center col-md-5">
                     <h5>  Hora Atual </h5> 
                     <hr/>
-                    <div style="padding-top:14px; height: 120px;">
+                    <div class="divinterna">
                     <h1 id="dataAtual">  </h1> 
                     </div>
                     
@@ -93,21 +98,21 @@
                     &nbsp;
                 </div>
 
-                <div class="cor2 padding text-center col-md-5">
+                <div class="cor1 padding text-center col-md-5">
                     <h5>  Produzido </h5> 
                     <hr/>
-                    <div style="padding-top:14px; height: 120px;">
+                    <div class="divinterna">
                     <h1 id="contador">   </h1> 
                     </div>
                     
                 </div>
 
-                <div class="cor1 padding text-center col-md-2"> </div>
+                <div class="cor2 padding text-center col-md-2"> </div>
 
-                <div class="cor2 padding text-center col-md-5">
+                <div class="cor1 padding text-center col-md-5">
                     <h5>  Realizado </h5> 
                     <hr/>
-                    <div style="padding-top:14px; height: 120px;">
+                    <div class="divinterna">
                     <h1 id="realizado">   </h1> 
                     </div>
                     
@@ -119,10 +124,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="cor2 padding text-center col-md-10">
+                <div class="cor1 padding text-center col-md-10">
                     <h5 class="text-center">  Meta Diária </h5> 
                     <hr/>
-                    <div style="padding-top:14px; height: 100px;">
+                    <div class="divinterna">
                     <h1 class="text-center" id="meta">  </h1> 
                     </div>
                     

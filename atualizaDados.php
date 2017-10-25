@@ -6,7 +6,7 @@ $results = $db->query('SELECT * FROM tab1;');
 $resultadoconsultaRows = $results->fetchArray(1);
 
     $linha              =       $resultadoconsultaRows['linha'];			
-    $linhaDesc          =       $resultadoconsultaRows['descricao_linha'];			
+ //   $linhaDesc          =       $resultadoconsultaRows['descricao_linha'];			
     $contador           =	$resultadoconsultaRows['contador'];			
     $meta_total         =	$resultadoconsultaRows['meta'];			
     $tempo_ciclo        =	$resultadoconsultaRows['tempo_ciclo'];			
