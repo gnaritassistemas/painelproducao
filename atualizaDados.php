@@ -1,12 +1,12 @@
 <?php
 date_default_timezone_set('America/Recife');
-//$db = new SQLite3('painel_meta.s3db');
-$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
+$db = new SQLite3('painel_meta.s3db');
+//$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
 $results = $db->query('SELECT * FROM tab1;');
 $resultadoconsultaRows = $results->fetchArray(1);
 
     $linha              =       $resultadoconsultaRows['linha'];			
- //   $linhaDesc          =       $resultadoconsultaRows['descricao_linha'];			
+    $linhaDesc          =       $resultadoconsultaRows['descricao_linha'];			
     $contador           =	$resultadoconsultaRows['contador'];			
     $meta_total         =	$resultadoconsultaRows['meta'];			
     $tempo_ciclo        =	$resultadoconsultaRows['tempo_ciclo'];			

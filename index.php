@@ -145,10 +145,11 @@
     <script src="assets/js/easypiechart-data.js"></script>
     <script>
     $(function() {
-         ajaxAtualizaDados();         
+//        ajaxAtualizaDados();         
+        ajaxAtualizaDados2();         
     });   
     function ajaxAtualizaDados(){
-        console.log('atualizaDados');
+       // console.log('atualizaDados');
         setTimeout('ajaxAtualizaDados()', 100); 
     
 
@@ -163,6 +164,7 @@
             for(var i in data) {
                 $("#"+i).html(data[i]);
             }
+            console.log('Sucesso AtualizaDados!');
         },
         error: function()
         {
@@ -170,8 +172,28 @@
         }//FIM DO error: function()
     });// FIM DA FUNÇÃO $.ajax
     }
-    </script>
     
+    function ajaxAtualizaDados2(){
+        console.log('WebService');
+    $.ajax({
+        type: 'POST',
+        url: "webservice_teste.php",
+        cache: false,
+        dataType: 'text',
+        success: function(data)
+        {   
+            //console.log(data);
+            ajaxAtualizaDados();
+
+        },
+        error: function()
+        {
+           console.log("Ocorreu um erro inesperado no WebService!!!");
+        }//FIM DO error: function()
+    });// FIM DA FUNÇÃO $.ajax
+    }
+   
+    </script>    
 </body>
 
 </html>
