@@ -145,7 +145,7 @@
     <script src="assets/js/easypiechart-data.js"></script>
     <script>
     $(function() {
-//        ajaxAtualizaDados();         
+        ajaxAtualizaDados();         
         ajaxAtualizaDados2();         
     });   
     function ajaxAtualizaDados(){
@@ -183,7 +183,7 @@
         success: function(data)
         {   
             //console.log(data);
-            ajaxAtualizaDados();
+            //ajaxAtualizaDados();
 
         },
         error: function()
