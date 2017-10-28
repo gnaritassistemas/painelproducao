@@ -150,7 +150,7 @@
     });   
     function ajaxAtualizaDados(){
        // console.log('atualizaDados');
-        setTimeout('ajaxAtualizaDados()', 100); 
+        setTimeout('ajaxAtualizaDados()', 500); 
     
 
     $.ajax({
