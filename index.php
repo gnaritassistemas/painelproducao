@@ -75,7 +75,7 @@
             <!-- /. ROW  --> 
             <div class="row">
                 <div class="cor1 padding text-center col-md-5">
-                    <h5>  Nº de Pessoass </h5> 
+                    <h5>  Nº de Pessoas </h5> 
                     <hr/>
                     <div class="divinterna">
                         <h1 id="no_homens"> </h1> 
