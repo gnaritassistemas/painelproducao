@@ -45,7 +45,7 @@ $stringUpdate2 = substr($stringUpdate2, 0,-2);
 $stringUpdate2 = 'UPDATE tab1 SET '.$stringUpdate2;
 var_dump ($stringUpdate2);
 //die();
-$db = new SQLite3('painel_meta.s3db');
-//$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
+//$db = new SQLite3('painel_meta.s3db');
+$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
 $results = $db->query($stringUpdate2);
 ?>
