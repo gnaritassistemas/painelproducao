@@ -147,9 +147,8 @@
     });   
     function ajaxAtualizaDados(){
         //console.log('atualizaDados');
-        //setTimeout('ajaxAtualizaDados()', 500); 
+        setTimeout('ajaxAtualizaDados()', 500); 
     
-
     $.ajax({
         type: 'POST',
         url: "atualizaDados.php",
