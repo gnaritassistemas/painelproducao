@@ -37,11 +37,7 @@ $resultadoconsultaRows = $results->fetchArray(1);
 
 $resultadoconsultaRows["dataAtual"] = $data;
 $resultadoconsultaRows["no_homens"] = $no_homens;
-$resultadoconsultaRows["realizado"] = '<h1 style="color:'.$cor.'">'.$realizado.'%</h1>
-<div class="easypiechart chart-'.$cor.'" id="easypiechart-'.$cor.'" data-percent="'.$realizado.'" style="height: 111px;" >
-    <span class="percent">'.$realizado.'%</span>
-</div>';
-
+$resultadoconsultaRows["realizado"] = '<h1 style="color:'.$cor.'">'.$realizado.'%</h1>';
 
 echo json_encode($resultadoconsultaRows);
 ?>

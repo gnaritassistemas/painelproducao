@@ -1,7 +1,3 @@
-<?php
-	error_reporting(E_ALL);
-	ini_set("display_errors" , 1);
-?>
 <!DOCTYPE html>
 <html>
 
@@ -57,8 +53,8 @@
         padding-bottom: 25px;
     }
     .padding2{
-        padding-top: 3%;
-        padding-left: 10%;
+        padding-top: 1%;
+        padding-left: 12%;
     }
     .divinterna{
         padding-top:14px; 
@@ -71,10 +67,7 @@
 <body class="cor2">
     
 <div class="container-fluid padding2">
-     
-<?php     
-  
-?>
+
 
             <!-- /. ROW  --> 
             <div class="row">
@@ -116,8 +109,8 @@
                 <div class="cor1 padding text-center col-md-5">
                     <h5>  Realizado </h5> 
                     <hr/>
-                    <div class="divinterna">
-                    <h1 id="realizado">   </h1> 
+                    <div class="divinterna" id="realizado">
+ 
                     </div>
                     
                     
@@ -153,8 +146,8 @@
         ajaxAtualizaDados2();         
     });   
     function ajaxAtualizaDados(){
-       // console.log('atualizaDados');
-        setTimeout('ajaxAtualizaDados()', 500); 
+        //console.log('atualizaDados');
+        //setTimeout('ajaxAtualizaDados()', 500); 
     
 
     $.ajax({
@@ -162,17 +155,16 @@
         url: "atualizaDados.php",
         cache: false,
         dataType: 'json',
-        data: "teste",
         success: function(data)
         {
             for(var i in data) {
                 $("#"+i).html(data[i]);
             }
-            console.log('Sucesso AtualizaDados!');
+            console.log('Sucesso atualizaDados!');
         },
-        error: function()
+        error: function(data)
         {
-           console.log("Ocorreu um erro inesperado no sistema!!! ");
+	  console.log(data);
         }//FIM DO error: function()
     });// FIM DA FUNÇÃO $.ajax
     }
@@ -186,13 +178,14 @@
         dataType: 'text',
         success: function(data)
         {   
-            //console.log(data);
+            console.log('Sucesso WebService');
             //ajaxAtualizaDados();
 
         },
-        error: function()
+        error: function(data)
         {
-           console.log("Ocorreu um erro inesperado no WebService!!!");
+	    console.log(data);
+           //console.log("Ocorreu um erro inesperado no WebService!!!");
         }//FIM DO error: function()
     });// FIM DA FUNÇÃO $.ajax
     }
