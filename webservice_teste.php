@@ -1,14 +1,15 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
 date_default_timezone_set('America/Recife');
-$client = new SoapClient('http://www4.totvsservicos.com.br:7099/wsexecbo/WebServiceExecBO?wsdl');
+$client = new SoapClient('http://papaiz-ne.dts-teste.totvscloud.com.br/wsexecbo/WebServiceExecBO?wsdl');
 $function = 'userLogin';
 $arguments= array('userLogin' => array(
                     'arg0'      => 'nunes@gnaritas.com.br'
             ));
-$options = array('location' => 'http://www4.totvsservicos.com.br:7099/wsexecbo/WebServiceExecBO');
+$options = array('location' => 'http://papaiz-ne.dts-teste.totvscloud.com.br/wsexecbo/WebServiceExecBO?wsdl');
 $token = $client->__soapCall($function, $arguments, $options)->return;
 
-$client = new SoapClient('http://www4.totvsservicos.com.br:7099/wsexecbo/WebServiceExecBO?wsdl');
+$client = new SoapClient('http://papaiz-ne.dts-teste.totvscloud.com.br/wsexecbo/WebServiceExecBO?wsdl');
 $function = 'callProcedureWithToken';
 $arguments= array('callProcedureWithToken' => array(
                     'arg0'      => trim($token),
@@ -25,7 +26,8 @@ $arguments= array('callProcedureWithToken' => array(
     
             ));
 
-$options      = array('location' => 'http://www4.totvsservicos.com.br:7099/wsexecbo/WebServiceExecBO');
+
+$options      = array('location' => 'http://papaiz-ne.dts-teste.totvscloud.com.br/wsexecbo/WebServiceExecBO?wsdl');
 $result       = $client->__soapCall($function, $arguments, $options)->return;
 $result       = json_decode($result, true);
 $size         = sizeof($result);
@@ -42,10 +44,19 @@ for($i=0; $i<sizeof($stringUpdate); $i++){
     $stringUpdate2 .=  $array[$i]."'$stringUpdate[$i]'".', ';
 }
 $stringUpdate2 = substr($stringUpdate2, 0,-2);
-$stringUpdate2 = 'UPDATE tab1 SET '.$stringUpdate2;
-var_dump ($stringUpdate2);
-//die();
+
+$stringUpdate2 = 'UPDATE tab1 SET '.$stringUpdate2.';';
+
+
 //$db = new SQLite3('painel_meta.s3db');
+
+
 $db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
-$results = $db->query($stringUpdate2);
+$results = $db->exec($stringUpdate2); 
+
+if($results)
+echo 'Sucesso WebService!';
+else
+echo 'Erro WebService!';
+
 ?>
