@@ -1,6 +1,10 @@
 <?php
  header("Access-Control-Allow-Origin: *");
 date_default_timezone_set('America/Recife');
+$db 		= new SQLite3('/usr/share/pythonProjects/cadeado.db');
+$query 		= $db->query("SELECT linha FROM tab1;");
+$resultadoconsultaRows 	= $query->fetchArray(1);
+$linha              = $resultadoconsultaRows['linha'];	
 $client = new SoapClient('http://papaiz-ne.dts-teste.totvscloud.com.br/wsexecbo/WebServiceExecBO?wsdl');
 $function = 'userLogin';
 $arguments= array('userLogin' => array(
@@ -15,7 +19,7 @@ $arguments= array('callProcedureWithToken' => array(
                     'arg0'      => trim($token),
                     'arg1'      => 'esp/escp0000.p',
                     'arg2'      => 'pi-param-cad',
-                    'arg3'      => '[{"dataType":"integer","name":"linha","value":"1","type":"input"},
+                    'arg3'      => '[{"dataType":"integer","name":"linha","value":'.$linha.',"type":"input"},
                   {"dataType":"character","name":"desc-linha","value":"","type":"output"},
                   {"dataType":"integer","name":"tempo-ciclo","value":"","type":"output"},
                   {"dataType":"integer","name":"hh-ini-prod","value":"","type":"output"},
@@ -51,7 +55,7 @@ $stringUpdate2 = 'UPDATE tab1 SET '.$stringUpdate2.';';
 //$db = new SQLite3('painel_meta.s3db');
 
 
-$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
+
 $results = $db->exec($stringUpdate2); 
 
 if($results)

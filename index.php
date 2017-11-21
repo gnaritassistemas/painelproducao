@@ -131,8 +131,7 @@
                     
                 </div>
             </div>
-   		
-				
+			
     </div>
     <!-- JS Scripts-->
     <script src="assets/js/jquery-1.10.2.js"></script>
@@ -160,6 +159,8 @@
                 $("#"+i).html(data[i]);
             }
             console.log('Sucesso atualizaDados!');
+            if( i == "webservice")
+             ajaxAtualizaDados2();   
         },
         error: function(data)
         {
