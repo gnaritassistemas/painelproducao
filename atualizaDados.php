@@ -31,7 +31,8 @@ $resultadoconsultaRows 	= $results->fetchArray(1);
     $hora_dif3      	= ( ($hora_atual + $minuto_atual) - ($hora_inicio + $minuto_inicio) );
     $meta_hora      	= ($meta_total/$hora_dif)*$hora_dif3;
     $realizado 	    	= ($contador/$meta_hora)*100;	
-    $no_homens      	= ceil((($meta_total - $contador) * $tempo_ciclo) / ($hora_dif * 60));
+    $no_homens      	= ceil((($meta_total - $contador) * $tempo_ciclo) / ($hora_dif2 * 60));
+    $no_homens      	=  $no_homens < 3 ? $no_homens = 3 : $no_homens;
    
     //echo $data.'---'.($hora_dif2 * 60); die();
 //FLAG PARA DEFINIR A COR EM RELAÇÃO AO REALIZADO    
