@@ -1,5 +1,5 @@
 <?php
- header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 date_default_timezone_set('America/Recife');
 $db 		= new SQLite3('/usr/share/pythonProjects/cadeado.db');
 $query 		= $db->query("SELECT linha FROM tab1;");
