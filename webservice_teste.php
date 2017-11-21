@@ -2,6 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 date_default_timezone_set('America/Recife');
 $db 		= new SQLite3('/usr/share/pythonProjects/cadeado.db');
+//$db = new SQLite3('painel_meta.s3db');
 $query 		= $db->query("SELECT linha FROM tab1;");
 $resultadoconsultaRows 	= $query->fetchArray(1);
 $linha              = $resultadoconsultaRows['linha'];	
@@ -19,7 +20,7 @@ $arguments= array('callProcedureWithToken' => array(
                     'arg0'      => trim($token),
                     'arg1'      => 'esp/escp0000.p',
                     'arg2'      => 'pi-param-cad',
-                    'arg3'      => '[{"dataType":"integer","name":"linha","value":'.$linha.',"type":"input"},
+                    'arg3'      => '[{"dataType":"integer","name":"linha","value": "'.$linha.'","type":"input"},
                   {"dataType":"character","name":"desc-linha","value":"","type":"output"},
                   {"dataType":"integer","name":"tempo-ciclo","value":"","type":"output"},
                   {"dataType":"integer","name":"hh-ini-prod","value":"","type":"output"},
@@ -50,11 +51,6 @@ for($i=0; $i<sizeof($stringUpdate); $i++){
 $stringUpdate2 = substr($stringUpdate2, 0,-2);
 
 $stringUpdate2 = 'UPDATE tab1 SET '.$stringUpdate2.';';
-
-
-//$db = new SQLite3('painel_meta.s3db');
-
-
 
 $results = $db->exec($stringUpdate2); 
 
