@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('America/Recife');
 
-$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
-//$db 			= new SQLite3('painel_meta.s3db');
+//$db = new SQLite3('/usr/share/pythonProjects/cadeado.db');
+$db 			= new SQLite3('painel_meta.s3db');
 $results 		= $db->query("SELECT * FROM tab1;");
 $resultadoconsultaRows 	= $results->fetchArray(1);
 
