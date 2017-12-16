@@ -1,8 +1,9 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 date_default_timezone_set('America/Recife');
-//$db 		= new SQLite3('/usr/share/pythonProjects/cadeado.db');
-$db = new SQLite3('painel_meta.s3db');
+$db 		= new SQLite3('/usr/share/pythonProjects/cadeado.db');
+// LEMBRAR DE ALTERAR O BANCO DO RASPBERRY
+//$db = new SQLite3('painel_meta.s3db');
 $query 		= $db->query("SELECT linha FROM tab1;");
 $resultadoconsultaRows 	= $query->fetchArray(1);
 $linha              = $resultadoconsultaRows['linha'];	
