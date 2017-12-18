@@ -55,7 +55,7 @@ $resultadoconsultaRows 	= $results->fetchArray(1);
     $resultadoconsultaRows["no_homens"] = $no_homens;
     $resultadoconsultaRows["realizado"] = '<h1 style="color:'.$cor.'">'.$realizado.'%</h1>';
 
-    if( $contador != 0 && ($hora_atual + $minuto_atual == ($hora_inicio+$minuto_inicio -15)) ){
+    if( ($hora_atual + $minuto_atual == ($hora_inicio+$minuto_inicio -15)) ){
         $db->exec("UPDATE tab1 SET contador = 0;");
 	$resultadoconsultaRows["webservice"] = "";
     }    
