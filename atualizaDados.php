@@ -26,6 +26,7 @@ $resultadoconsultaRows 	= $results->fetchArray(1);
     $data           	= date('H:i');
     $hora_atual     	= date('H');
     $minuto_atual     	= date('i');
+	$segundo_atual     	= date('s');
     $hora_atual     	= ($hora_atual * 60);
     $hora_dif       	= ( ($hora_termino + $minuto_termino) - ($hora_inicio + $minuto_inicio));
     $hora_dif2      	= ( ($hora_termino + $minuto_termino) - ($hora_atual + $minuto_atual) );
@@ -55,7 +56,7 @@ $resultadoconsultaRows 	= $results->fetchArray(1);
     $resultadoconsultaRows["no_homens"] = $no_homens;
     $resultadoconsultaRows["realizado"] = '<h1 style="color:'.$cor.'">'.$realizado.'%</h1>';
 
-    if( ($hora_atual + $minuto_atual == ($hora_inicio+$minuto_inicio -15)) ){
+    if( ($hora_atual + $minuto_atual   == ($hora_inicio+$minuto_inicio -15)) && ($segundo_atual ==0) ){
         $db->exec("UPDATE tab1 SET contador = 0;");
 	$resultadoconsultaRows["webservice"] = "";
     }    
